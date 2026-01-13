@@ -38,40 +38,24 @@ class Program
         
         int remainder = gradePercentage % 10;
         string sign = "";
-        if (remainder >= 7)
+        if (gradePercentage < 96 && gradePercentage > 60)
         {
-            sign = "+";
-        }
-        else if (remainder < 3)
-        {
-            sign = "-";
-        }
-        
-        if (passed == true)
-        {
-            if (letter != "A")
+            if (remainder >= 7)
             {
+                sign = "+";
+            }
+            else if (remainder < 3)
+            {
+                sign = "-";
+            }
+        }
+         if (passed == true)
+        {
                 Console.WriteLine($"You are passing this class with a {letter}{sign}, congragulations!");
-            }
-            else if (sign == "+")
-            {
-                Console.WriteLine($"You are passing this class with an {letter}, congragulations!");
-            }
-            else
-            {
-                Console.WriteLine($"You are passing this class with an {letter}{sign}, congragulations!");
-            }
         }
         else
         {
-            if (letter != "F")
-            {
                 Console.WriteLine($"You are currently not passing with a {letter}{sign}. Don't give up though, it's not too late to improve your score");
-            }
-            else
-            {
-                Console.WriteLine($"You are currently not passing with an {letter}. Don't give up though, it's not too late to improve your score");
-            }
         }
     }
 }
