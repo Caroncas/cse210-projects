@@ -12,11 +12,13 @@ public class Entry()
     */
     public string _entry;
     public string _prompt;
-    public DateTime _dateTime;
+    public string _dateTime;
 
     /*Method:
         -Display():void
         Displaying prompt
+        ** if you decide to do that optional thing you were talking about it would be good to create a separate method for it
+           so that it doesn't choose a different random prompt.
     */
     public void Display()
     {
