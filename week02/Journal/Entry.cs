@@ -23,7 +23,7 @@ public class Entry()
     public void Display()
     {
         PromptGenerator prompt = new PromptGenerator();
-        string _prompt = prompt.DisplayRandom();
+        _prompt = prompt.DisplayRandom();
         Console.WriteLine($">{_prompt}");
     }
 }
