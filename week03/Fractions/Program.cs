@@ -21,5 +21,8 @@ class Program
         fraction3.GetBottom();
         Console.WriteLine(fraction3.GetFractionString());
         Console.WriteLine(fraction3.GetDecimalValue());
+
+        Deposits deposit = new Deposits(300, 200);
+        Console.WriteLine($"Balance is: {deposit.PrintBalance()}");
     }
 }
