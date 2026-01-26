@@ -6,6 +6,7 @@ class Program
     static void Main(string[] args)
     {
         //Scripture Memorizer
+        //***CREATIVE ADDITION***: I gave the user the option to input a scripture or they can receive one randomly chosen by the program from a text file.
         /*
         STORE a scripture (allow for multiple verses)
         CLEAR console screen then DISPLAY the complete scripture (each time)
