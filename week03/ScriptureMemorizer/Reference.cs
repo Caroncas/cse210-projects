@@ -12,7 +12,6 @@ public class Reference
     private int _chapter;
     private int _verse;
     private int _endVerse;
-
     //Methods:
     public string GetReferenceText()
     {
@@ -27,7 +26,6 @@ public class Reference
         }
         return scriptureReference;
     }
-
     //Constructors:
     public Reference(string bookName, int chapter, int verse)
     {

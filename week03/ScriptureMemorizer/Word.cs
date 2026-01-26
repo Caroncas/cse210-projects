@@ -10,7 +10,6 @@ public class Word
     //_blackoutWord (bool)
     private string _text;
     private bool _blackoutWord;
-    
     //Methods:
     //HideWord (return = void)
     //ShowUnderlinedWord (return = void)
@@ -19,15 +18,43 @@ public class Word
     public void HideWord()
     {
         //changes _blackoutWord status of the class
+        _blackoutWord = true;
     }
-    public string ShowUnderlinedWord()
+    public void ShowUnderlinedWord()
     {
         //returns underlined version of the word to print
         // int wordLength.Length(_text);
         //it will need to iterate through the same length as the word (not including punctuation?)
         //it will add _ onto the end of a predetermined thing?
         //maybe you can just alter the _text instead of returning a string?
-        return "";
+        List<char> specialCharacters = new List<char> {',', '.', '-', ';', ':'};
+        string blackedOutWord = "";
+        char newCharacter;
+        bool characterIsSpecial = false;
+        char specialCharacter = ' ';
+        foreach (char character in _text)
+        {
+            foreach (char specChar in specialCharacters)
+            {
+                if (character == specChar)
+                {
+                    characterIsSpecial = true;
+                    specialCharacter = specChar;
+                    break;
+                }
+            }
+            if (characterIsSpecial != true)
+            {
+                    newCharacter = '_';
+                    blackedOutWord += newCharacter;
+            }
+            else
+            {
+                blackedOutWord += specialCharacter;
+            }
+        }
+        _text = blackedOutWord;
+
     }
     public bool CheckWord()
     {
@@ -42,10 +69,9 @@ public class Word
     }
     public string GetText()
     {
-        string emptyForNow = "";
-        return emptyForNow;
+        string word = _text;
+        return word;
     }
-
     //Constructors:
     public Word(string singleWord)
     {
