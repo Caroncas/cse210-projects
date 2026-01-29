@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Video> videos = new List<Video>();
         Video video1 = new Video("Beauty and Mr. Beast", "Studio C", 309);
         Comment commentA1 = new Comment("@JasLamArr91", "Somehow being trapped with Mr.Beast seems way worse than being with the actual Beast.");
         video1.GetComments(commentA1);
@@ -13,7 +14,7 @@ class Program
         video1.GetComments(commentA3);
         Comment commentA4 = new Comment("@CrazyCobraCC", "I started cryinig laughing when I saw the -1 over each flower petal");
         video1.GetComments(commentA4);
-        video1.DisplayInformation();
+        videos.Add(video1);
 
         Video video2 = new Video("\nWorst Funeral Director Ever", "Studio C", 216);
         Comment commentB1 = new Comment("@baabaopare-addo5989", "'What are you doing out of your casket' the fact that he said it so nonchalantly");
@@ -24,7 +25,7 @@ class Program
         video2.GetComments(commentB3);
         Comment commentB4 = new Comment("@scienceontology", "We offer a two-for-one deal: Are any of you close to dying anytime soon?");
         video2.GetComments(commentB4);
-        video2.DisplayInformation();
+        videos.Add(video2);
 
         Video video3 = new Video("\nThe Hunger Games Musical: Mockingjay | Peeta's Song", "Studio C", 184);
         Comment commentC1 = new Comment("peytonb7100", "the moment you realize Peeta is named after flat bread");
@@ -35,7 +36,7 @@ class Program
         video3.GetComments(commentC3);
         Comment commentC4 = new Comment("@MilyBakes", "'he's slightly useless but there's no one sweeter' is the most accurate peeta description");
         video3.GetComments(commentC4);
-        video3.DisplayInformation();
+        videos.Add(video3);
         
         Video video4 = new Video("\nTop Soccer Shootout Ever With Scott Sterling", "Studio C", 316);
         Comment commentD1 = new Comment("@scottsterling6144", "Years have passed but people didnt forget me wow");
@@ -48,6 +49,11 @@ class Program
         video4.GetComments(commentD4);
         Comment commentD5 = new Comment("@bilalshams9417", "Fifa should hire these commentators");
         video4.GetComments(commentD5);
-        video4.DisplayInformation();
+        videos.Add(video4);
+
+        foreach (Video video in videos)
+        {
+            video.DisplayInformation();
+        }
     }
 }
