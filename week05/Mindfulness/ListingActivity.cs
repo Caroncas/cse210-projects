@@ -9,6 +9,7 @@ public class ListingActivity : Activity
     
     //Attributes:
     private List<string> _listingPrompts = new List<string>{"Who are people you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?", "What songs have resonated with you this week?", "What foods have tasted especially good this week?"};
+    private int _count;
 
     //Methods:
     /*
@@ -16,13 +17,30 @@ public class ListingActivity : Activity
         - Get random prompt
         - Get list of responses from user (into CSV?? TXT??? quien sabe)
     */
-     public void Run()
+    static Random random = new Random();
+    public void Run()
     {
         Console.Clear();
+        GetRandomPrompt();
+        _count = GetList().Count();
+    }
+    public void GetRandomPrompt()
+    {
+        int totalPrompts = _listingPrompts.Count();
+        int randomNumber = random.Next(0, totalPrompts);
+        Console.WriteLine(_listingPrompts[randomNumber]);
+    }
+    public List<string> GetList()
+    {
+        List<string> responseList = new List<string>();
+        Console.Write(" > ");
+        string item = Console.ReadLine();
+        responseList.Add(item);
+        return responseList;
     }
 
     //Constructors:
-    public ListingActivity(string name, string description, int duration) : base(name, description, duration)
+    public ListingActivity(string name, string description) : base(name, description)
     {
         
     }

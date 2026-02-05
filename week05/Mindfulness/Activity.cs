@@ -16,7 +16,7 @@ public class Activity
     //Attributes:
     private string _nameOfActivity;
     private string _description;
-    private int _duration;
+    protected int _duration;
 
     //Methods:
     /*
@@ -27,14 +27,62 @@ public class Activity
     */
     public void DisplayStartingMessage()
     {
-        
+        Console.WriteLine($"Welcome to the {_nameOfActivity}!");
+        Console.WriteLine($"This activity will {_description}\n");
+        Console.Write("How long, in seconds, would you like for your session? ");
+        string duration = Console.ReadLine();
+        _duration = int.Parse(duration);
+    }
+    public void DisplayEndMessage()
+    {
+        Console.WriteLine("Well Done! ");
+        ShowSpinner(5);
+        Console.WriteLine($"\n\nYou have completed {_duration} seconds of the {_nameOfActivity}.");
+        ShowSpinner(5);
+    }
+    public void ShowSpinner(int seconds)
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+        List<string> animation = new List<string>{"|", "/", "-", "\\", "|", "/", "-", "\\"};
+        int i = 0;
+        while (DateTime.Now < endTime)
+        {
+            string character = animation[i];
+            Console.Write(character);
+            Thread.Sleep(750);
+            Console.Write("\b \b");
+
+            i++;
+            if (i >= animation.Count)
+            {
+                i = 0;
+            }
+        }
+    }
+    public void ShowCountdown(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
+        {
+            if (i < 9)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
+            }
+            else
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.Write("\b\b  \b\b");
+            }
+        }
     }
 
     //Constructor:
-    public Activity(string name, string description, int duration)
+    public Activity(string name, string description)
     {
         _nameOfActivity = name;
         _description = description;
-        _duration = duration;
     }
 }

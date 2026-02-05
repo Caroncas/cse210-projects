@@ -15,11 +15,41 @@ public class BreathingActivity : Activity
     */
     public void Run()
     {
+        DisplayStartingMessage();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
         Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(3);
+        while (DateTime.Now < endTime)
+        {
+            TimeSpan timeRemaining = endTime - DateTime.Now;
+            if (timeRemaining.TotalSeconds >= 5)
+            {
+                Console.Write("\n\nBreathe in... ");
+                ShowCountdown(2);
+                Thread.Sleep(1000);
+                Console.Write("\nNow breathe out... ");
+                ShowCountdown(2);
+                Thread.Sleep(1000);
+            }
+            else
+            {
+                Console.Write("\n\nBreathe in... ");
+                ShowCountdown(4);
+                Thread.Sleep(1000);
+                Console.Write("\nNow breathe out... ");
+                ShowCountdown(4);
+                Thread.Sleep(1000);
+            }
+        }
+        Console.WriteLine("\n");
+        DisplayEndMessage();
     }
 
     //Constructor:
-    public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
+    public BreathingActivity(string name, string description) : base(name, description)
     {
         
     }
