@@ -25,10 +25,16 @@ public class Activity
         - Pause w/ spinner for certain seconds
         - Pause w/ countdown timer
     */
-
-    //Constructor:
-    public Activity()
+    public void DisplayStartingMessage()
     {
         
+    }
+
+    //Constructor:
+    public Activity(string name, string description, int duration)
+    {
+        _nameOfActivity = name;
+        _description = description;
+        _duration = duration;
     }
 }

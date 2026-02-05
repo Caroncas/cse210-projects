@@ -13,6 +13,14 @@ public class BreathingActivity : Activity
     /*
         - Run
     */
+    public void Run()
+    {
+        Console.Clear();
+    }
 
     //Constructor:
+    public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
+    {
+        
+    }
 }
