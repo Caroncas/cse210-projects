@@ -26,6 +26,24 @@ public class ReflectionActivity : Activity
     public void Run()
     {
         Console.Clear();
+        DisplayStartingMessage();
+        
+        Console.WriteLine("Consider the following prompt:");
+        DisplayPrompt();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
+        Console.Write("\nNow ponder on each of the following questions as they relate to this experience.\nYou may begin in: ");
+        ShowCountdown(5);
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+        while (DateTime.Now < endTime)
+        {
+            DisplayQuestion();
+            ShowSpinner(10);
+        }
+
+        DisplayEndMessage();
     }
     public string GetRandomPrompt()
     {
@@ -46,21 +64,21 @@ public class ReflectionActivity : Activity
             randomNumber = random.Next(0, questionTotal);
             if (!_usedQuestion.Contains(randomNumber))
             {
-                _usedQuestion.Add(randomNumber);
                 question = _questions[randomNumber];
             }
         } while (_usedQuestion.Contains(randomNumber));
+        _usedQuestion.Add(randomNumber);
         return question;
     }
     public void DisplayPrompt()
     {
         string prompt = GetRandomPrompt();
-        Console.WriteLine($"--- {prompt} ---");
+        Console.WriteLine($"\n--- {prompt} ---\n");
     }
     public void DisplayQuestion()
     {
         string question = GetRandomQuestion();
-        Console.WriteLine($"\t> {question}");
+        Console.Write($"\n\t> {question} ");
     }
 
     //Constructor:

@@ -15,17 +15,15 @@ public class BreathingActivity : Activity
     */
     public void Run()
     {
+        Console.Clear();
         DisplayStartingMessage();
 
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
-        Console.Clear();
-        Console.WriteLine("Get ready...");
-        ShowSpinner(3);
         while (DateTime.Now < endTime)
         {
             TimeSpan timeRemaining = endTime - DateTime.Now;
-            if (timeRemaining.TotalSeconds >= 5)
+            if (timeRemaining.TotalSeconds <= 5)
             {
                 Console.Write("\n\nBreathe in... ");
                 ShowCountdown(2);

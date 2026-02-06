@@ -21,8 +21,16 @@ public class ListingActivity : Activity
     public void Run()
     {
         Console.Clear();
+        DisplayStartingMessage();
+
+        Console.WriteLine("\nList as many responses you can to the following prompt: ");
         GetRandomPrompt();
+        Console.WriteLine("You may begin in: ");
+        ShowCountdown(5);
         _count = GetList().Count();
+        Console.WriteLine($"You listed {_count} items!");
+
+        DisplayEndMessage();
     }
     public void GetRandomPrompt()
     {
@@ -33,9 +41,14 @@ public class ListingActivity : Activity
     public List<string> GetList()
     {
         List<string> responseList = new List<string>();
-        Console.Write(" > ");
-        string item = Console.ReadLine();
-        responseList.Add(item);
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+        while (DateTime.Now < endTime)
+        {
+            Console.Write(" > ");
+            string item = Console.ReadLine();
+            responseList.Add(item);
+        }
         return responseList;
     }
 
