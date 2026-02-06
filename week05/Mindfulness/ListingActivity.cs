@@ -15,7 +15,6 @@ public class ListingActivity : Activity
     /*
         - Run
         - Get random prompt
-        - Get list of responses from user (into CSV?? TXT??? quien sabe)
     */
     static Random random = new Random();
     public void Run()
